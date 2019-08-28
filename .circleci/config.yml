@@ -1,8 +1,21 @@
 version: 2
 jobs:
-  build:
+  FIRSTJOB:
     docker: 
       - image: circleci/node:4.8.2
     steps:
       - checkout
       - run: echo "hello world"
+  SECONDJOB:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - checkout
+      - run: echo "hello world again"
+
+workflows:
+  version: 2
+  first_and_second:
+    jobs:
+      - FIRSTJOB
+      - SECONDJOB
