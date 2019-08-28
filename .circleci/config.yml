@@ -12,3 +12,10 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world again"
+
+workflows:
+  version: 2
+  first_and_second:
+    jobs:
+      - FIRSTJOB
+      - SECONDJOB
